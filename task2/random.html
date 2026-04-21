@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script</title>
+    <style>
+        .output {
+            width: 80em;
+            height: 35em;
+            background-color: rgb(211, 211, 211);
+            margin : 2em;
+        }
+        #myButton {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            background-color: lightblue;
+        }
+        #myImage {
+            width: 11em;
+            height: 11em;
+            border-radius: 100px;
+        }   
+    </style>
+</head>
+<body>
+    <div class="output">
+        <img id="myImage" src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" width="104" height="142" style="position: relative;">
+    </div>
+
+
+    <div align="center">
+        <button id="myButton" onclick="startRandomMovement()">click to move randomly</button>
+    </div>
+    <!-- JavaScript to move the image in random motion within the output div with one click in loop-->
+    <script>
+        function  moverandomly() {
+            const img = document.getElementById("myImage");
+            const outputDiv = document.querySelector(".output");
+            const maxX = outputDiv.clientWidth - img.clientWidth;
+            const maxY = outputDiv.clientHeight - img.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            img.style.position = "absolute";
+            img.style.left = randomX + "px";
+            img.style.top = randomY + "px";
+        }
+        function startRandomMovement() {
+            setInterval(moverandomly, 1000); 
+        }
+    </script>
+</body>
+</html>
